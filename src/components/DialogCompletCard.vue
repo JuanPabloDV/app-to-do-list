@@ -1,13 +1,13 @@
 <template>
     <v-dialog v-model="dialog" width="auto">
       <v-card>
-        <v-card-title>Excluir</v-card-title>
+        <v-card-title>Concluir</v-card-title>
         <v-card-text>
-          <p>Deseja excluir a tarefa?</p>
+          <p>Deseja concluir a tarefa?</p>
         </v-card-text>
         <v-card-actions class="d-flex justify-center">
           <v-btn color="black" @click="dialog = false">Cancelar</v-btn>
-          <v-btn color="red" @click="deleteItem">Excluir</v-btn>
+          <v-btn color="red" @click="completItem">Concluir</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -20,18 +20,20 @@ export default {
   data () {
     return {
         dialog: false,
+        id: 0,
     }
   },
-  props: {
-    id: String,
-  },
   methods: {
-    async deleteItem() {
+    async completItem() {
       try {
-        await api.delete('/todo/' + this.$props.id);
+        await api.put('/todo/' + this.id, {
+          isCompleted: true,
+        });
+
+        this.dialog = false;
         window.location.reload();
       } catch (error) {
-        console.error('Erro ao excluir o item:', error);
+        console.error('Erro ao atualizar o item:', error);
       }
     },
   }
