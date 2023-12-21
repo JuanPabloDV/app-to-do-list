@@ -1,24 +1,6 @@
-# n2
+Projeto para a Disciplina de Programação 3
 
-## Project setup
-```
-npm install
-```
+Objetivo: Desenvolver uma interface para gerenciar uma lista de afazeres.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Introdução:
+Este projeto tem como finalidade a criação de uma interface robusta e eficiente para a gestão de uma lista de afazeres.
